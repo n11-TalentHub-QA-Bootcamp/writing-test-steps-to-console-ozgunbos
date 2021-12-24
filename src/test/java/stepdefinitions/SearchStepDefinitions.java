@@ -81,17 +81,17 @@ public class SearchStepDefinitions {
     @Then("I should see related results on the main page")
     public void iShouldSeeRelatedResultsOnTheMainPage() {
 
-        System.out.println("last response: "+SerenityRest.lastResponse().statusCode());
+//        System.out.println("last response: "+SerenityRest.lastResponse().statusCode());
         List<String> resultList = SerenityRest.lastResponse().getBody().jsonPath().getList("");
-        System.out.println("resultList: "+resultList.size());
+//        System.out.println("resultList: "+resultList.size());
         actor.attemptsTo(
                 Ensure.that(CurrentSearchResultCount.information())
                         .contains(resultList.size() +" results have been found.")
         );
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }
